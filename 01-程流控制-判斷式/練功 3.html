@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分數等級程式</title>
+</head>
+
+<body>
+    <script>
+        var score = 82;
+        var level = "";
+        if ((score >= 80) && (100 >= score)) {
+            level = "甲";
+        } else if ((score >= 70) && (79 >= score)) {
+            level = "乙";
+        } else if ((score >= 60) && (69 >= score)) {
+            level = "丙";
+        } else if ((score >= 0) && (59 >= score)) {
+            level = "丁";
+
+        } else {
+            level = "無";
+        }
+
+        document.write(score + "=>成績等級為" + level + "等");
+    </script>
+</body>
+
+</html>

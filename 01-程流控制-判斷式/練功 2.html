@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水費計算</title>
+</head>
+
+<body>
+    <script>
+        var water = 8;
+
+        if ((water >= 1) && (10 >= water)) {
+            document.write(Math.round(water * 7.35));
+        } else if ((water >= 11) && (30 >= water)) {
+            document.write(Math.round(water * 9.45));
+        } else if ((water >= 31) && (50 >= water)) {
+            document.write(Math.round(water * 11.55));
+        } else if(water >= 51) {
+            document.write(Math.round(water * 12.075));
+        }else{
+            document.write("輸入不合理的用水度數=>" +water);
+        }
+
+// (1)想問老師因為原先水費的單價是有小數點的，導致輸出時沒辦法只出現前面整數，
+// 我查詢網路後有使用Math.round語法去做四捨五入，有甚麼方法是可以使用我們目前學習到的程式碼就可以做到只取前面數字的嗎?
+// (我目前有想到的是計算時直接將單價的小數點抹去，但怕這樣會導致相乘後的費用有誤差值)
+
+// (2)條件設立的部分比大小的狀態設立有一個通用基準嗎?ex:都使用>為主、變數要在前面之類的
+    </script>
+</body>
+
+</html>
