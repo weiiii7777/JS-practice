@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 取亂數(0-1)之間 Math.random()
+        // Math.random()*n 回傳0,1,2....,n-1 
+        var rd = Math.random() * 100;
+
+        // 去除亂數的小數(無條件捨去)
+        // console.log(Math.floor(rd))
+
+        // 去除亂數的小數後+1(避免結果得到0)
+        rd = Math.floor(rd) + 1
+        rd = Number(rd);
+        min = 1
+        max = 100
+        time = 0
+        while (time < 5) {
+            var num = prompt("猜數字(只能輸入5次)");
+            num = Number(num);
+            if (isNaN(num)) {
+                alert("請輸入數字")
+                continue;
+            }
+            if (num === rd) {
+                time++;
+                alert("第" + time + "次=>恭喜你答對了，就是" + num)
+                document.write("第" + time + "次=>" + num + "答對了！就是" + num + "<br>")
+
+                break;
+            } else if (num > rd) {
+                time++;
+                max = num
+                alert("第" + time + "次=>太大了(提示：" + min + "-" + max + ")")
+                document.write("第" + time + "次=>" + num + "=>" + "太大了" + min + "-" + max + "<br>")
+            } else if (num < rd) {
+                time++;
+                min = num
+                alert("第" + time + "次=>太小了(提示：" + min + "-" + max + ")")
+                document.write("第" + time + "次=>" + num + "=>" + "太小了" + min + "-" + max + "<br>")
+            }
+
+        }
+        if (time === 5 && num !== rd) {
+            alert("很抱歉，你已經猜了5次，正確答案是" + rd)
+        }
+
+
+    </script>
+</body>
+
+</html>
