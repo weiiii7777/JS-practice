@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>成績計算</h1>
+    <p id="result">結果</p>
+
+    <script>
+        var a = 0;//及格
+        var b = 0;//不及格
+        var c = 0;//全班分數相加
+        var d = 0;//全班平均
+
+        // 如果有break可以不用接else if直接放一個新的if
+        do {
+            var grade = prompt("請輸入成績，輸入-1時結束");
+
+            if (grade == null) {
+                var a = 0;
+                var b = 0;
+                var c = 0;
+                var d = 0;
+                alert("你按了取消，系統即將結束。");
+                break;
+            }
+            // 去除資料前後的空白 trim()
+            if (grade.trim() == "") {
+                alert("成績不能空白，請重新輸入");
+                continue;
+            }
+
+
+            // 有資料，檢查是否結束
+            if (grade == -1) {
+                alert("成績輸入結束，系統即將結束。");
+                break;
+            }
+
+            // 字串轉數字
+            grade = Number(grade);
+
+            // // 檢查是否為數字
+            if (isNaN(grade)) {
+                alert("非數字，請重新輸入");
+                continue;
+                if (grade < 0 || grade > 100) {
+                    alert("輸入成績非有效範圍，請重新輸入");
+                    continue;
+                }
+            }
+            alert("輸入的成績為：" + grade);
+
+            // 及不及格
+            if (grade >= 60) {
+                a++;
+            } else {
+                b++;
+            }
+
+            c += grade;
+        } while (1);//or(1)=(true);(0)=(false)
+
+        if ((a + b) > 0) {
+            d = c / (a + b);
+        }
+
+        if (c % (a + b) != 0) {
+            d = d.toFixed(1)
+        }
+
+        // 顯示結果
+        var result = document.getElementById("result");
+        result.innerHTML = `
+            及格人數有: ${a}<br>
+            不及格人數有:${b}<br>
+            全班總分:${c}<br>
+            全班平均:${d}分
+            `;
+    </script>
+</body>
+
+</html>
