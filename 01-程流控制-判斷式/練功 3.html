@@ -9,22 +9,23 @@
 
 <body>
     <script>
-        var score = 82;
-        var level = "";
-        if ((score >= 80) && (100 >= score)) {
-            level = "甲";
-        } else if ((score >= 70) && (79 >= score)) {
-            level = "乙";
-        } else if ((score >= 60) && (69 >= score)) {
-            level = "丙";
-        } else if ((score >= 0) && (59 >= score)) {
-            level = "丁";
-
+        var intScore = 82;
+        var strLevel = "";
+        // 錯誤發生的狀況先檢查可以減少系統效能浪費
+        if (intScore < 0 || intScore > 100) {
+            strLevel = "無";
         } else {
-            level = "無";
+            if ((intScore >= 80) && (100 >= intScore)) {
+                strLevel = "甲";
+            } else if ((intScore >= 70) && (79 >= intScore)) {
+                strLevel = "乙";
+            } else if ((intScore >= 60) && (69 >= intScore)) {
+                strLevel = "丙";
+            } else if ((intScore >= 0) && (59 >= intScore)) {
+                strLevel = "丁";
+            }
+            document.write(intScore + "=>成績等級為" + strLevel + "等");
         }
-
-        document.write(score + "=>成績等級為" + level + "等");
     </script>
 </body>
 

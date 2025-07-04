@@ -1,30 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>票價費用試算程式</title>
 </head>
+
 <body>
     <script>
-        var ticket = "";
-        var number = "";
-        var X = "";
-        var Y = "";
-        ticket = prompt("請輸入票價種類");
-        number = prompt("請輸入張數");
+        var tickettype = "";
+        var ticketnumber = 0;
+        var price = 0;
+        var ticketName = "";
+        var errFlag = "N";
 
-        if (ticket == 1) {
-            X = 500;
-            Y = "全票";
-        } else if (ticket == 2) {
-            X = 500*0.8;
-            Y = "優待票";
-        } else if (ticket == 3) {
-            X = 500*0.8*0.7;
-            Y = "敬老票";
+        tickettype = prompt("請輸入票價種類");
+        ticketnumber = prompt("請輸入張數");
+
+        if (tickettype == 1) {
+            price = 500;
+            ticketName = "全票";
+        } else if (tickettype == 2) {
+            price = 500 * 0.8;
+            ticketName = "優待票";
+        } else if (tickettype == 3) {
+            price = 500 * 0.8 * 0.7;
+            ticketName = "敬老票";
+        } else {
+            errFlag = "Y";
         }
-        document.write(Y + number + "張，票價為：" + number*X +"元");
+        if (errFlag == "N") {
+            document.write(ticketName + ticketnumber + "張，票價為：" + ticketnumber * price + "元");
+        }
     </script>
 </body>
+
 </html>
